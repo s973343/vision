@@ -1,8 +1,10 @@
 import os
 from dotenv import load_dotenv
 
-# Load .env from the same directory as this config file to ensure it is found
-load_dotenv(os.path.join(os.path.dirname(__file__), '.env'))
+# Load my.env from the same directory as this config file
+base_dir = os.path.dirname(__file__)
+env_path = os.path.join(base_dir, "my.env")
+load_dotenv(env_path)
 
 # Paths
 VIDEO_INPUT = "data/Trishul_480P.mp4"
