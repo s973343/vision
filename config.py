@@ -1,0 +1,28 @@
+import os
+from dotenv import load_dotenv
+
+# Load .env from the same directory as this config file to ensure it is found
+load_dotenv(os.path.join(os.path.dirname(__file__), '.env'))
+
+# Paths
+VIDEO_INPUT = "data/Trishul_480P.mp4"
+AUDIO_OUTPUT = "data/temp_audio.mp3"
+FRAME_DIR = "data/frames/"
+DB_PATH = "./video_db_v2"
+
+# Model Configs
+CLIP_MODEL = "ViT-B/16" # 512-dim
+WHISPER_MODEL = "medium"
+REASONING_MODEL = "Qwen/Qwen2.5-VL-72B-Instruct" # DeepSeek V3.2 logic
+VLM_MODEL = "meta-llama/llama-4-maverick-17b-128e-instruct" # Groq
+#---------------------#NEBIUS models----------------------
+#VL_MODEL = "Qwen/Qwen2.5-VL-72B-Instruct"
+USER_DESCRIPTION = "A video showing a movie schene"
+
+NEBIUS_API_KEY = os.getenv("NEBIUS_API_KEY")
+if not NEBIUS_API_KEY:
+    raise ValueError("❌ NEBIUS_API_KEY is missing! Please create a .env file in this folder with: NEBIUS_API_KEY=your_key_here")
+
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+if not GROQ_API_KEY:
+    print("⚠️ Warning: GROQ_API_KEY is missing. RAG Query features might fail.")
