@@ -10,7 +10,7 @@ load_dotenv(env_path)
 VIDEO_INPUT = "data/Trishul_480P.mp4"
 AUDIO_OUTPUT = "data/temp_audio.mp3"
 FRAME_DIR = "data/frames/"
-DB_PATH = "./video_db_v2"
+DB_PATH = "./video_db"
 
 # Model Configs
 CLIP_MODEL = "ViT-B/16" # 512-dim
@@ -28,3 +28,4 @@ if not NEBIUS_API_KEY:
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 if not GROQ_API_KEY:
     print("⚠️ Warning: GROQ_API_KEY is missing. RAG Query features might fail.")
+
